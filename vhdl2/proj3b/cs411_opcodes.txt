@@ -1,0 +1,115 @@
+cs411_opcodes.txt different from Computer Organization and Design  8/17/2020
+
+rd is register destination, the result, general register 1 through 31
+rs is the first register,  A, source, general register 0 through 31
+rt is the second register, B, source, general register 0 through 31
+Register zero is always zero and can not be changed.
+
+--val---- generally a 16 bit number that gets sign extended
+--adr---- a 16 bit address, gets sign extended and added to (rx) 
+"i" "im" is generally immediate, operand value is in the instruction
+
+Opcode Operands    Machine code format
+                       6   5   5   5   5   6  number of bits in field
+
+nop                RR  00  0   0   0   0   00
+add    rd,rs,rt    RR  00  rs  rt  rd  0   32
+sub    rd,rs,rt    RR  00  rs  rt  rd  0   34
+mul    rd,rs,rt    RR  00  rs  rt  rd  0   24
+div    rd,rs,rt    RR  00  rs  rt  rd  0   27
+and    rd,rs,rt    RR  00  rs  rt  rd  0   13
+or     rd,rs,rt    RR  00  rs  rt  rd  0   15
+srl    rd,rt,shf   RR  00  0   rt  rd  shf 02  rt>>shf
+sll    rd,rt,shf   RR  00  0   rt  rd  shf 04  rt<<shf
+cmpl   rd,rt       RR  00  0   rt  rd  0   11
+j      jadr        J   02  ------jadr--------
+lwim   rd,rs,val   M   15  rs  rd  ---val----
+addi   rd,rs,val   M   12  rs  rd  ---val----
+beq    rs,rt,adr   M   29  rs  rt  ---adr----
+lw     rd,adr(rx)  M   35  rx  rd  ---adr----
+sw     rt,adr(rx)  M   43  rx  rt  ---adr----
+
+
+        instruction bits (binary of 6 5 5 5 5 6 format above)
+ 3 3 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1
+ 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0 9 8 7 6 5 4 3 2 1 0
+            |         |         |         |         |
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 nop
+
+ 0 0 0 0 0 0 a a a a a b b b b b r r r r r -ignored- 1 0 0 0 0 0 add r,a,b
+
+ 0 0 0 0 0 0 a a a a a b b b b b r r r r r -ignored- 1 0 0 0 1 0 sub r,a,b
+
+ 0 0 0 0 0 0 a a a a a b b b b b r r r r r -ignored- 0 1 1 0 0 0 mul r,a,b
+
+ 0 0 0 0 0 0 a a a a a b b b b b r r r r r -ignored- 0 1 1 0 1 1 div r,a,b
+
+ 0 0 0 0 0 0 a a a a a b b b b b r r r r r -ignored- 0 0 1 1 0 1 and r,a,b
+
+ 0 0 0 0 0 0 a a a a a b b b b b r r r r r -ignored- 0 0 1 1 1 1 or  r,a,b
+
+ 0 0 0 0 0 0 0 0 0 0 0 b b b b b r r r r r s s s s s 0 0 0 0 1 0 srl r,b,s 
+
+ 0 0 0 0 0 0 0 0 0 0 0 b b b b b r r r r r s s s s s 0 0 0 1 0 0 sll r,b,s
+
+ 0 0 0 0 0 0 0 0 0 0 0 b b b b b r r r r r -ignored- 0 0 1 0 1 1 cmpl r,b 
+
+ 0 0 0 0 1 0 -----address to bits (27:2) of PC------------------ j adr
+
+ 0 0 1 1 1 1 x x x x x r r r r r ---2's complement value-------- lwim r,val(x)
+
+ 0 0 1 1 0 0 x x x x x r r r r r ---2's complement value-------- addi r,val(x)
+
+ 0 1 1 1 0 1 a a a a a b b b b b ---2's complement address------ beq a,b,adr
+
+ 1 0 0 0 1 1 x x x x x r r r r r ---2's complement address------ lw r,adr(x)
+
+ 1 0 1 0 1 1 x x x x x b b b b b ---2's complement address------ sw b,adr(x)
+
+
+ Definitions:
+ nop          no operation, no programmer visible registers or memory
+              are changed, except PC <= PC+4
+
+ j adr        bits 0 through 25 of the instruction are inserted into PC(27:2)
+              probably should zero bits PC(1:0) but should be zero already
+
+ lw r,adr(x)  load word into register r from memory location (register x plus
+              sign extended adr field)
+
+ sw b,adr(x)  store word from register b into memory location (register x plus
+              sign extended adr field)
+
+ beq a,b,adr  branch on equal, if the contents of register a are equal
+              to the contents of register b, add the, shifted by two,
+              sign extended adr to the PC (The PC will have 4 added by then)
+
+ lwim r,val(x) load word immediate, the contents of register x is added to the
+              sign extended value and the result put into register r
+
+ addi r,val(x) add immediate, the contents of register x is added to the
+              sign extended value and the result added into register r
+
+ add r,a,b    add register a to register b and put result into register r
+
+ sub r,a,b    subtract register b from register a and put result into register r
+
+ mul r,a,b    multiply register a by register b and put result into register r
+
+ div r,a,b    divide register a by register b and put result into register r
+
+ and r,a,b    and register a to register b and put result into register r
+
+ or  r,a,b    or register a to register b and put result into register r
+
+ srl r,b,s    shift the contents of register b by s places right and put
+              result in register r
+
+ sll r,b,s    shift the contents of register b by s places left and put
+              result in register r
+
+ cmpl r,b     one's complement of register b goes into register r
+
+ Also: no instructions are to have side effects or additional "features"
+
+ last updated 8/17/2020 (some difference in opcodes from previous semesters)

@@ -1,0 +1,128 @@
+ncvhdl: 15.20-s035: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncvhdl	15.20-s035: Started on Dec 11, 2020 at 00:04:37 EST
+ncvhdl
+    -v93
+    -messages
+    -linedebug
+    -cdslib /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/cds.lib
+    -hdlvar /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/hdl.var
+    -smartorder
+    add32.vhdl
+    bshift.vhdl
+    pmul16.vhdl
+    divcas16.vhdl
+    part1.abs
+    part1.vhdl
+
+pmul16.vhdl:
+	errors: 0, warnings: 0
+add32.vhdl:
+	errors: 0, warnings: 0
+bshift.vhdl:
+	errors: 0, warnings: 0
+divcas16.vhdl:
+	errors: 0, warnings: 0
+part1.vhdl:
+	errors: 0, warnings: 0
+ncvhdl_p: *W,MULARC: multiple architectures for entity 'BSHIFT' analyzed in order:
+    BSHIFT:BEHAVIOR
+    BSHIFT:CIRCUITS.
+VHDL.MADD1 (entity):
+	streams: 5, words: 62
+VHDL.MADD1:CIRCUITS (architecture):
+	streams: 1, words: 99
+VHDL.MADD (entity):
+	streams: 7, words: 74
+VHDL.MADD:CIRCUITS (architecture):
+	streams: 1, words: 99
+VHDL.PMUL16 (entity):
+	streams: 7, words: 798
+VHDL.PMUL16:CIRCUITS (architecture):
+	streams: 13, words: 10141
+VHDL.PG4 (entity):
+	streams: 14, words: 116
+VHDL.PG4:CIRCUITS (architecture):
+	streams: 1, words: 99
+VHDL.ADD4PG (entity):
+	streams: 10, words: 686
+VHDL.ADD4PG:CIRCUITS (architecture):
+	streams: 1, words: 285
+VHDL.ADD32 (entity):
+	streams: 9, words: 890
+VHDL.ADD32:CIRCUITS (architecture):
+	streams: 11, words: 6373
+VHDL.BSHIFT (entity):
+	streams: 9, words: 830
+VHDL.BSHIFT:BEHAVIOR (architecture):
+	streams: 2, words: 1185
+VHDL.BSHIFT:CIRCUITS (architecture):
+	streams: 1, words: 21661
+VHDL.CAS (entity):
+	streams: 7, words: 74
+VHDL.CAS:CIRCUITS (architecture):
+	streams: 1, words: 99
+VHDL.DIVCAS16 (entity):
+	streams: 9, words: 1038
+VHDL.DIVCAS16:CIRCUITS (architecture):
+	streams: 17, words: 14429
+VHDL.UTIL_PKG (package):
+	streams: 1, words: 237
+VHDL.UTIL_PKG:BODY (package body):
+	streams: 2, words: 857
+VHDL.REGISTER_32 (entity):
+	streams: 7, words: 610
+VHDL.REGISTER_32:BEHAVIOR (architecture):
+	streams: 1, words: 99
+VHDL.REGISTER_5 (entity):
+	streams: 7, words: 490
+VHDL.REGISTER_5:BEHAVIOR (architecture):
+	streams: 1, words: 99
+VHDL.INSTRUCTION_MEMORY (entity):
+	streams: 6, words: 604
+VHDL.INSTRUCTION_MEMORY:BEHAVIOR (architecture):
+	streams: 1, words: 106
+VHDL.DATA_MEMORY (entity):
+	streams: 10, words: 896
+VHDL.DATA_MEMORY:BEHAVIOR (architecture):
+	streams: 1, words: 106
+VHDL.REGISTERS (entity):
+	streams: 15, words: 1550
+VHDL.REGISTERS:BEHAVIOR (architecture):
+	streams: 1, words: 106
+VHDL.MUX_32 (entity):
+	streams: 8, words: 884
+VHDL.MUX_32:BEHAVIOR (architecture):
+	streams: 1, words: 99
+VHDL.MUX32_3 (entity):
+	streams: 11, words: 1170
+VHDL.MUX32_3:BEHAVIOR (architecture):
+	streams: 1, words: 99
+VHDL.MUX32_6 (entity):
+	streams: 20, words: 2028
+VHDL.MUX32_6:BEHAVIOR (architecture):
+	streams: 1, words: 99
+VHDL.MUX_5 (entity):
+	streams: 8, words: 704
+VHDL.MUX_5:BEHAVIOR (architecture):
+	streams: 1, words: 99
+VHDL.EQUAL32 (entity):
+	streams: 6, words: 604
+VHDL.EQUAL32:CIRCUITS (architecture):
+	streams: 2, words: 1686
+VHDL.EQUAL6 (entity):
+	streams: 6, words: 484
+VHDL.EQUAL6:CIRCUITS (architecture):
+	streams: 2, words: 1644
+VHDL.EQUAL5 (entity):
+	streams: 6, words: 484
+VHDL.EQUAL5:CIRCUITS (architecture):
+	streams: 2, words: 1644
+VHDL.ALU_32 (entity):
+	streams: 9, words: 1158
+VHDL.ALU_32:SCHEMATIC (architecture):
+	streams: 16, words: 14010
+VHDL.PART1 (entity):
+	streams: 1, words: 38
+VHDL.PART1:SCHEMATIC (architecture):
+	streams: 33, words: 31353
+TOOL:	ncvhdl	15.20-s035: Exiting on Dec 11, 2020 at 00:04:37 EST  (total: 00:00:00)

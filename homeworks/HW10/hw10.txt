@@ -1,0 +1,139 @@
+Brendan Cain
+HW10
+
+a)                       b)                     c)
++-----+                  +-----+                +-----+
+| CPU |                  | CPU |                | CPU |
++-----+                  +-----+                +-----+
+   |                        |                      |
++-----+             +---+---+---+---+           +-----+
+|cache|             |    cache      |           |cache|
++-----+             +---+---+---+---+           +-----+
+ /   \               /             \             /   \
+| bus |             |      bus      |           | bus |
+ \   /               \             /             \   /
++-----+             +---+---+---+---+    +---+ +---+ +---+ +---+
+|     |             |   |   |   |   |    |   | |   | |   | |   | registers
++-----+             +---+---+---+---+    +---+ +---+ +---+ +---+
+|     |             |               |    |   | |   | |   | |   |
+| mem |             |     mem       |    |m0 | |m1 | |m2 | |m3 |
+|     |             |               |    |   | |   | |   | |   |
++-----+             +---+---+---+---+    +---+ +---+ +---+ +---+
+
+cache 16 words        cache 16 words           cache 16 words
+per block             per block                per block
+bus one word wide     bus four words wide      bus one word wide
+memory one word wide  memory four words wide   memory, four independent
+                                            one word wide memories
+
+
+a) 82 cycles           b) 22 cycles          c) 25 cycles
+avg memory latency:    avg memory latency:   avg memory latency:
+82/16 = 5.125          22/16 = 1.375         25/16 = 1.5265
+
+1  address on bus     address on bus         address on bus
+2  fetching W0        fetching W0-W3         m0 fetching W0
+3  fetching W0        fetching W0-W3         "  m1 fetching W1
+4  fetching W0        fetching W0-W3         "  "  m2 fetching W2
+5  fetching W0        fetching W0-W3         "  "  "  m3 fetching W3
+6  fetching W0        fetching W0-W3         "  "  "  "
+7  word 0 on bus      words 0-3 on bus       word 0 on bus
+   fetching W1        fetching W4-W7         m0 fetching W4 plus - " " "
+8  fetching W1        fetching W4-W7         word 1 on bus
+                                             m1 fetching W5 plus " - " "
+9  fetching W1        fetching W4-W7         word 2 on bus
+                                             m2 fetching W6 plus " " - "
+10 fetching W1        fetching W4-W7         word 3 on bus
+                                             m3 fetching W7 plus " " " -
+11 fetching W1        fetching W4-W7         "  "  "  "
+12 word 1 on bus      words 4-7 on bus       word 4 on bus
+   fetching W2        fetching W8-W11        m0 fetching W8 plus - " " "
+13 fetching W2        fetching W8-W11        word 5 on bus
+                                             m1 fetching W9 plus " - " "
+14 fetching W2        fetching W8-W11        word 6 on bus
+                                             m2 fetching W10 plus " " - "
+15 fetching W2        fetching W8-W11        word 7 on bus
+                                             m3 fetching W11 plus " " " -
+16 fetching W2        fetching W4-W11        "  "  "  "
+17 word 2 on bus      words 8-11 on bus      word 8 on bus
+   fetching W3        fetching W12-W15       m0 fetching W12 plus - " " "
+18 fetching W3        fetching W12-W15       word 9 on bus
+                                             m1 fetching W13 plus " - " "
+19 fetching W3        fetching W12-W15       word 10 on bus
+                                             m2 fetching W14 plus " " - "
+20 fetching W3        fetching W12-W15       word 11 on bus
+                                             m3 fetching W15 plus " " " -
+21 fetching W3        fetching W12-W15       "  "  "  "
+22 word 3 on bus      words 12-15 on bus     word 12 on bus
+   fetching W4
+23 fetching W4                               word 13 on bus
+24 fetching W4                               word 14 on bus
+25 fetching W4                               word 15 on bus
+26 fetching W4
+27 word 4 on bus
+   fetching W5
+28 fetching W5
+29 fetching W5
+30 fetching W5
+31 fetching W5
+32 word 5 on bus
+   fetching W6
+33 fetching W6
+34 fetching W6
+35 fetching W6
+36 fetching W6
+37 word 6 on bus
+   fetching W7
+38 fetching W7
+39 fetching W7
+40 fetching W7
+41 fetching W7
+42 word 7 on bus
+   fetching W8
+43 fetching W8
+44 fetching W8
+45 fetching W8
+46 fetching W8
+47 word 8 on bus
+   fetching W9
+48 fetching W9
+49 fetching W9
+50 fetching W9
+51 fetching W9
+52 word 9 on bus
+   fetching W10
+53 fetching W10
+54 fetching W10
+55 fetching W10
+56 fetching W10
+57 word 10 on bus
+  fetching W11
+58 fetching W11
+59 fetching W11
+60 fetching W11
+61 fetching W11
+62 word 11 on bus
+   fetching W12
+63 fetching W12
+64 fetching W12
+65 fetching W12
+66 fetching W12
+67 word 12 on bus
+   fetching W13
+68 fetching W13
+69 fetching W13
+70 fetching W13
+71 fetching W13
+72 word 13 on bus
+   fetching W14
+73 fetching W14
+74 fetching W14
+75 fetching W14
+76 fetching W14
+77 word 14 on bus
+   fetching W15
+78 fetching W15
+79 fetching W15
+80 fetching W15
+81 fetching W15
+82 word 15 on bus

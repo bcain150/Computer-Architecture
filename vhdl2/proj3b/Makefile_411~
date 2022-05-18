@@ -1,0 +1,144 @@
+# Makefile for Cadence  tar was in ~/cs411/vhdl2 and all other files in same directory
+#             tar made subdirectories csd.lib and hdl.var and vhdl
+#             note: the "\" says line continued
+
+all: t_table.out inverter_out.txt add32_test.out tadd32.out pmul16_test.out \
+     part1_start.out part1.out part2a.out part2b.out part3a.out part3b.out
+
+t_table.out: t_table.vhdl t_table.run
+	run_ncvhdl.bash -messages -linedebug -cdslib ~/cs411/vhdl2/cds.lib \
+	      -hdlvar ~/cs411/vhdl2/hdl.var -smartorder t_table.vhdl
+	run_ncelab.bash -messages -access rwc -cdslib ~/cs411/vhdl2/cds.lib \
+	      -hdlvar ~/cs411/vhdl2/hdl.var t_table
+	run_ncsim.bash -input t_table.run -batch -logfile t_table.out \
+	      -cdslib ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+	      t_table
+
+
+inverter_out.txt:  inverter.vhdl inverter_test.vhdl inverter_in.txt inverter.run
+	run_ncvhdl.bash -messages -linedebug -cdslib ~/cs411/vhdl2/cds.lib \
+	      -hdlvar ~/cs411/vhdl2/hdl.var -smartorder inverter.vhdl \
+	      inverter_test.vhdl
+	run_ncelab.bash -messages -access rwc -cdslib ~/cs411/vhdl2/cds.lib \
+	      -hdlvar ~/cs411/vhdl2/hdl.var inverter_test
+	run_ncsim.bash -input inverter.run -batch -logfile inverter_test.out \
+	      -messages -cdslib ~/cs411/vhdl2/cds.lib -hdlvar \
+	      ~/cs411/vhdl2/hdl.var inverter_test
+
+
+add32_test.out: add32_test.vhdl add32_test.run
+	run_ncvhdl.bash -v93 -messages -linedebug -cdslib \
+	      ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+	      -smartorder add32_test.vhdl
+	run_ncelab.bash -v93 -messages -access rwc -cdslib \
+	      ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var add32_test
+	run_ncsim.bash -input add32_test.run -batch -logfile add32_test.out \
+	      -messages -cdslib ~/cs411/vhdl2/cds.lib -hdlvar \
+	      ~/cs411/vhdl2/hdl.var add32_test
+
+
+tadd32.out: add32.vhdl tadd32.vhdl tadd32.run #HW4 using my add32.vhdl
+	run_ncvhdl.bash -v93 -messages -linedebug -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              -smartorder add32.vhdl tadd32.vhdl
+	run_ncelab.bash -v93 -messages -access rwc -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var tadd32
+	run_ncsim.bash -input tadd32.run -batch -logfile tadd32.out \
+              -messages -cdslib ~/cs411/vhdl2/cds.lib -hdlvar \
+              ~/cs411/vhdl2/hdl.var tadd32
+
+
+pmul16_test.out: pmul16.vhdl pmul16_test.vhdl pmul16_test.run #HW6
+	run_ncvhdl.bash -v93 -messages -linedebug -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              -smartorder pmul16.vhdl pmul16_test.vhdl
+	run_ncelab.bash -v93 -messages -access rwc -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var pmul16_test
+	run_ncsim.bash -input pmul16_test.run -batch -logfile pmul16_test.out \
+              -messages -cdslib ~/cs411/vhdl2/cds.lib -hdlvar \
+              ~/cs411/vhdl2/hdl.var pmul16_test
+
+
+part1_start.out: add32.vhdl bshift.vhdl pmul16.vhdl divcas16.vhdl part1.abs \
+                 part1_start.vhdl part1_start.run
+	run_ncvhdl.bash -v93 -messages -linedebug -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              -smartorder add32.vhdl bshift.vhdl pmul16.vhdl \
+              divcas16.vhdl part1.abs part1_start.vhdl
+	run_ncelab.bash -v93 -messages -access rwc -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              part1_start
+	run_ncsim.bash -input part1_start.run -batch -logfile part1_start.out \
+              -messages -cdslib ~/cs411/vhdl2/cds.lib -hdlvar \
+              ~/cs411/vhdl2/hdl.var part1_start
+
+
+part1.out: add32.vhdl bshift.vhdl pmul16.vhdl divcas16.vhdl part1.abs \
+           part1.vhdl part1.run
+	run_ncvhdl.bash -v93 -messages -linedebug -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              -smartorder add32.vhdl bshift.vhdl pmul16.vhdl \
+              divcas16.vhdl part1.abs part1.vhdl
+	run_ncelab.bash -v93 -messages -access rwc -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              part1
+	run_ncsim.bash -input part1.run -batch -logfile part1.out \
+              -messages -cdslib ~/cs411/vhdl2/cds.lib -hdlvar \
+              ~/cs411/vhdl2/hdl.var part1
+
+
+part2a.out: add32.vhdl bshift.vhdl pmul16.vhdl divcas16.vhdl part2a.abs \
+            part2a.vhdl part2a.run
+	run_ncvhdl.bash -v93 -messages -linedebug -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              -smartorder add32.vhdl bshift.vhdl pmul16.vhdl \
+              divcas16.vhdl part2a.abs part2a.vhdl
+	run_ncelab.bash -v93 -messages -access rwc -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              part2a
+	run_ncsim.bash -input part2a.run -batch -logfile part2a.out \
+              -messages -cdslib ~/cs411/vhdl2/cds.lib -hdlvar \
+              ~/cs411/vhdl2/hdl.var part2a
+
+
+part2b.out: add32.vhdl bshift.vhdl pmul16.vhdl divcas16.vhdl part2b.abs \
+            part2b.vhdl part2b.run
+	run_ncvhdl.bash -v93 -messages -linedebug -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              -smartorder add32.vhdl bshift.vhdl pmul16.vhdl \
+              divcas16.vhdl part2b.abs part2b.vhdl
+	run_ncelab.bash -v93 -messages -access rwc -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              part2b
+	run_ncsim.bash -input part2b.run -batch -logfile part2b.out \
+              -messages -cdslib ~/cs411/vhdl2/cds.lib -hdlvar \
+              ~/cs411/vhdl2/hdl.var part2b
+
+
+part3a.out: add32.vhdl bshift.vhdl pmul16.vhdl divcas16.vhdl part3a.abs \
+            part3a.vhdl part3a.run
+	run_ncvhdl.bash -v93 -messages -linedebug -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              -smartorder add32.vhdl bshift.vhdl pmul16.vhdl \
+              divcas16.vhdl part3a.abs part3a.vhdl
+	run_ncelab.bash -v93 -messages -access rwc -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              part3a
+	run_ncsim.bash -input part3a.run -batch -logfile part3a.out \
+              -messages -cdslib ~/cs411/vhdl2/cds.lib -hdlvar \
+              ~/cs411/vhdl2/hdl.var part3a
+
+
+part3b.out: add32.vhdl bshift.vhdl pmul16.vhdl divcas16.vhdl part3b.abs \
+            part3b.vhdl part3b.run
+	run_ncvhdl.bash -v93 -messages -linedebug -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              -smartorder add32.vhdl bshift.vhdl pmul16.vhdl \
+              divcas16.vhdl part3b.abs part3b.vhdl
+	run_ncelab.bash -v93 -messages -access rwc -cdslib \
+              ~/cs411/vhdl2/cds.lib -hdlvar ~/cs411/vhdl2/hdl.var \
+              part3b
+	run_ncsim.bash -input part3b.run -batch -logfile part3b.out \
+              -messages -cdslib ~/cs411/vhdl2/cds.lib -hdlvar \
+              ~/cs411/vhdl2/hdl.var part3b
+

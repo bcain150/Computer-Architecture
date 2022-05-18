@@ -1,0 +1,18 @@
+ncelab: 15.20-s035: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncelab	15.20-s035: Started on Nov 17, 2020 at 11:40:52 EST
+ncelab
+    -messages
+    -access rwc
+    -cdslib /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/cds.lib
+    -hdlvar /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/hdl.var
+    t_table
+
+ncelab: *W,ARCMRA: Elaborating the VHDL.T_TABLE:TEST, MRA (most recently analyzed) architecture.
+	Elaborating the design hierarchy:
+	Building instance specific data structures.
+	Design hierarchy summary:
+		     Instances  Unique
+		Components:  2       1
+		Processes:   1       1
+	Writing initial simulation snapshot: VHDL.T_TABLE:TEST
+TOOL:	ncelab	15.20-s035: Exiting on Nov 17, 2020 at 11:40:53 EST  (total: 00:00:01)

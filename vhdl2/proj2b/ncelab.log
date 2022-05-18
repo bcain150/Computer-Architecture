@@ -1,0 +1,21 @@
+ncelab: 15.20-s035: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncelab	15.20-s035: Started on Dec 11, 2020 at 22:14:29 EST
+ncelab
+    -v93
+    -messages
+    -access rwc
+    -cdslib /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/cds.lib
+    -hdlvar /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/hdl.var
+    part2b
+
+ncelab: *W,ARCMRA: Elaborating the VHDL.PART2B:SCHEMATIC, MRA (most recently analyzed) architecture.
+	Elaborating the design hierarchy:
+	Building instance specific data structures.
+	Design hierarchy summary:
+		              Instances  Unique
+		Components:         682      24
+		Default bindings:    17      16
+		Processes:         2384      94
+		Signals:            855     213
+	Writing initial simulation snapshot: VHDL.PART2B:SCHEMATIC
+TOOL:	ncelab	15.20-s035: Exiting on Dec 11, 2020 at 22:14:29 EST  (total: 00:00:00)

@@ -1,0 +1,113 @@
+ncsim: 15.20-s035: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncsim	15.20-s035: Started on Nov 17, 2020 at 15:48:18 EST
+ncsim
+    -input tadd32.run
+    -batch
+    -logfile tadd32.out
+    -messages
+    -cdslib /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/cds.lib
+    -hdlvar /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/hdl.var
+    tadd32
+
+Loading snapshot vhdl.tadd32:circuits .................... Done
+ncsim> run 65 ns
+Driver starting.
+  a=00000000,  b=FFFFFFFF,  cin=0
+sum=FFFFFFFF,  cout=0, cntr=0,  at=1 ns
+
+  a=00000000,  b=FFFFFFFF,  cin=1
+sum=00000000,  cout=1, cntr=1,  at=3 ns
+
+  a=FFFFFFFF,  b=00000000,  cin=0
+sum=FFFFFFFF,  cout=0, cntr=2,  at=5 ns
+
+  a=FFFFFFFF,  b=00000000,  cin=1
+sum=00000000,  cout=1, cntr=3,  at=7 ns
+
+  a=88888888,  b=88888888,  cin=0
+sum=11111110,  cout=1, cntr=4,  at=9 ns
+
+  a=88888888,  b=88888888,  cin=1
+sum=11111111,  cout=1, cntr=5,  at=11 ns
+
+  a=20202020,  b=DDDDDDDD,  cin=0
+sum=FDFDFDFD,  cout=0, cntr=6,  at=13 ns
+
+  a=20202020,  b=DDDDDDDD,  cin=1
+sum=FDFDFDFE,  cout=0, cntr=7,  at=15 ns
+
+  a=33333333,  b=0C0C0C0C,  cin=0
+sum=3F3F3F3F,  cout=0, cntr=8,  at=17 ns
+
+  a=33333333,  b=0C0C0C0C,  cin=1
+sum=3F3F3F40,  cout=0, cntr=9,  at=19 ns
+
+  a=44444444,  b=BBBBABBB,  cin=0
+sum=FFFFEFFF,  cout=0, cntr=10,  at=21 ns
+
+  a=44444444,  b=BBBBABBB,  cin=1
+sum=FFFFF000,  cout=0, cntr=11,  at=23 ns
+
+  a=55555555,  b=A9AAAAAA,  cin=0
+sum=FEFFFFFF,  cout=0, cntr=12,  at=25 ns
+
+  a=55555555,  b=A9AAAAAA,  cin=1
+sum=FF000000,  cout=0, cntr=13,  at=27 ns
+
+  a=66666666,  b=99899999,  cin=0
+sum=FFEFFFFF,  cout=0, cntr=14,  at=29 ns
+
+  a=66666666,  b=99899999,  cin=1
+sum=FFF00000,  cout=0, cntr=15,  at=31 ns
+
+  a=77777777,  b=88878888,  cin=0
+sum=FFFEFFFF,  cout=0, cntr=16,  at=33 ns
+
+  a=77777777,  b=88878888,  cin=1
+sum=FFFF0000,  cout=0, cntr=17,  at=35 ns
+
+  a=88888888,  b=77776777,  cin=0
+sum=FFFFEFFF,  cout=0, cntr=18,  at=37 ns
+
+  a=88888888,  b=77776777,  cin=1
+sum=FFFFF000,  cout=0, cntr=19,  at=39 ns
+
+  a=99999999,  b=66666566,  cin=0
+sum=FFFFFEFF,  cout=0, cntr=20,  at=41 ns
+
+  a=99999999,  b=66666566,  cin=1
+sum=FFFFFF00,  cout=0, cntr=21,  at=43 ns
+
+  a=AAAAAAAA,  b=55555545,  cin=0
+sum=FFFFFFEF,  cout=0, cntr=22,  at=45 ns
+
+  a=AAAAAAAA,  b=55555545,  cin=1
+sum=FFFFFFF0,  cout=0, cntr=23,  at=47 ns
+
+  a=BBBBBBBB,  b=44444443,  cin=0
+sum=FFFFFFFE,  cout=0, cntr=24,  at=49 ns
+
+  a=BBBBBBBB,  b=44444443,  cin=1
+sum=FFFFFFFF,  cout=0, cntr=25,  at=51 ns
+
+  a=CCCCCCCC,  b=33333333,  cin=0
+sum=FFFFFFFF,  cout=0, cntr=26,  at=53 ns
+
+  a=CCCCCCCC,  b=33333333,  cin=1
+sum=00000000,  cout=1, cntr=27,  at=55 ns
+
+  a=DDDDDDDD,  b=22222222,  cin=0
+sum=FFFFFFFF,  cout=0, cntr=28,  at=57 ns
+
+  a=DDDDDDDD,  b=22222222,  cin=1
+sum=00000000,  cout=1, cntr=29,  at=59 ns
+
+  a=EEEEEEEE,  b=11111111,  cin=0
+sum=FFFFFFFF,  cout=0, cntr=30,  at=61 ns
+
+  a=EEEEEEEE,  b=11111111,  cin=1
+sum=00000000,  cout=1, cntr=31,  at=63 ns
+
+Ran until 65 NS + 0
+ncsim> exit
+TOOL:	ncsim	15.20-s035: Exiting on Nov 17, 2020 at 15:48:18 EST  (total: 00:00:00)

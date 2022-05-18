@@ -1,0 +1,33 @@
+ncvhdl: 15.20-s035: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncvhdl	15.20-s035: Started on Nov 18, 2020 at 14:20:09 EST
+ncvhdl
+    -v93
+    -messages
+    -linedebug
+    -cdslib /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/cds.lib
+    -hdlvar /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/hdl.var
+    -smartorder
+    pmul16.vhdl
+    pmul16_test.vhdl
+
+pmul16.vhdl:
+	errors: 0, warnings: 0
+pmul16_test.vhdl:
+	errors: 0, warnings: 0
+VHDL.MADD1 (entity):
+	streams: 5, words: 62
+VHDL.MADD1:CIRCUITS (architecture):
+	streams: 1, words: 99
+VHDL.MADD (entity):
+	streams: 7, words: 74
+VHDL.MADD:CIRCUITS (architecture):
+	streams: 1, words: 99
+VHDL.PMUL16 (entity):
+	streams: 7, words: 798
+VHDL.PMUL16:CIRCUITS (architecture):
+	streams: 13, words: 10141
+VHDL.PMUL16_TEST (entity):
+	streams: 1, words: 38
+VHDL.PMUL16_TEST:CIRCUITS (architecture):
+	streams: 2, words: 1959
+TOOL:	ncvhdl	15.20-s035: Exiting on Nov 18, 2020 at 14:20:09 EST  (total: 00:00:00)

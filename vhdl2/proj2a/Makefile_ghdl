@@ -1,0 +1,116 @@
+# Makefile_ghdl      make -f Makefile_ghdl part1.gout
+#                    make -f Makefile_ghdl part2a.gout    etc
+
+all: t_table.gout add32_test.gout tadd32.gout pmul16_test.gout \
+     part1_start.gout part1.gout part2a.gout part2b.gout \
+     part3a.gout part3b.gout
+
+t_table.gout: t_table.vhdl
+	ghdl -a --ieee=synopsys t_table.vhdl
+	ghdl -e --ieee=synopsys t_table
+	ghdl -r --ieee=synopsys t_table --stop-time=1ns > t_table.gout
+
+add32_test.gout: add32_test.vhdl
+	ghdl -a --ieee=synopsys add32_test.vhdl
+	ghdl -e --ieee=synopsys add32_test
+	ghdl -r --ieee=synopsys add32_test --stop-time=160ns > add32_test.gout
+
+tadd32.gout: add32.vhdl  tadd32.vhdl # HW4
+	ghdl -a --ieee=synopsys add32.vhdl
+	ghdl -a --ieee=synopsys tadd32.vhdl
+	ghdl -e --ieee=synopsys tadd32
+	ghdl -r --ieee=synopsys tadd32 --stop-time=65ns > tadd32.gout
+	diff -iw tadd32.gout tadd32.chkg
+
+pmul16_test.gout: pmul16.vhdl  pmul16_test.vhdl # HW4
+	ghdl -a --ieee=synopsys pmul16.vhdl
+	ghdl -a --ieee=synopsys pmul16_test.vhdl
+	ghdl -e --ieee=synopsys pmul16_test
+	ghdl -r --ieee=synopsys pmul16_test --stop-time=8704ns > pmul16_test.gout
+	diff -iw pmul16_test.gout pmul16_test.chkg
+
+part1_start.gout: part1_start.vhdl add32.vhdl bshift.vhdl pmul16.vhdl \
+             divcas16.vhdl part1.abs
+	ghdl -a --ieee=synopsys add32.vhdl
+	ghdl -a --ieee=synopsys bshift.vhdl
+	ghdl -a --ieee=synopsys pmul16.vhdl
+	ghdl -a --ieee=synopsys divcas16.vhdl
+	ghdl -a --ieee=synopsys part1_start.vhdl
+	ghdl -e --ieee=synopsys part1_start
+	ghdl -r --ieee=synopsys part1_start --stop-time=280ns > part1_start.gout
+	diff -iw part1_start.gout part1_start.chkg
+
+part1.gout: part1.vhdl add32.vhdl bshift.vhdl pmul16.vhdl \
+             divcas16.vhdl part1.abs
+	ghdl -a --ieee=synopsys add32.vhdl
+	ghdl -a --ieee=synopsys bshift.vhdl
+	ghdl -a --ieee=synopsys pmul16.vhdl
+	ghdl -a --ieee=synopsys divcas16.vhdl
+	ghdl -a --ieee=synopsys part1.vhdl
+	ghdl -e --ieee=synopsys part1
+	ghdl -r --ieee=synopsys part1 --stop-time=280ns > part1.gout
+	diff -iw part1.gout part1.chkg
+	
+part2a.gout: part2a.vhdl add32.vhdl bshift.vhdl pmul16.vhdl \
+             divcas16.vhdl part2a.abs
+	ghdl -a --ieee=synopsys add32.vhdl
+	ghdl -a --ieee=synopsys bshift.vhdl
+	ghdl -a --ieee=synopsys pmul16.vhdl
+	ghdl -a --ieee=synopsys divcas16.vhdl
+	ghdl -a --ieee=synopsys part2a.vhdl
+	ghdl -e --ieee=synopsys part2a
+	ghdl -r --ieee=synopsys part2a --stop-time=270ns > part2a.gout
+
+#       diff -iw part2a.gout part2a.chkg
+
+part2b.gout: part2b.vhdl add32.vhdl bshift.vhdl pmul16.vhdl \
+             divcas16.vhdl part2b.abs
+	ghdl -a --ieee=synopsys add32.vhdl
+	ghdl -a --ieee=synopsys bshift.vhdl
+	ghdl -a --ieee=synopsys pmul16.vhdl
+	ghdl -a --ieee=synopsys divcas16.vhdl
+	ghdl -a --ieee=synopsys part2b.vhdl
+	ghdl -e --ieee=synopsys part2b
+	ghdl -r --ieee=synopsys part2b --stop-time=290ns > part2b.gout
+
+#       diff -iw part2b.gout part2b.chkg
+
+part3a.gout: part3a.vhdl add32.vhdl bshift.vhdl pmul16.vhdl \
+             divcas16.vhdl part3a.abs
+	ghdl -a --ieee=synopsys add32.vhdl
+	ghdl -a --ieee=synopsys bshift.vhdl
+	ghdl -a --ieee=synopsys pmul16.vhdl
+	ghdl -a --ieee=synopsys divcas16.vhdl
+	ghdl -a --ieee=synopsys part3a.vhdl
+	ghdl -e --ieee=synopsys part3a
+	ghdl -r --ieee=synopsys part3a --stop-time=510ns > part3a.gout
+
+#       diff -iw part3a.gout part3a.chkg
+
+part3b.gout: part3b.vhdl add32.vhdl bshift.vhdl pmul16.vhdl \
+             divcas16.vhdl part3b.abs
+	ghdl -a --ieee=synopsys add32.vhdl
+	ghdl -a --ieee=synopsys bshift.vhdl
+	ghdl -a --ieee=synopsys pmul16.vhdl
+	ghdl -a --ieee=synopsys divcas16.vhdl
+	ghdl -a --ieee=synopsys part3b.vhdl
+	ghdl -e --ieee=synopsys part3b
+	ghdl -r --ieee=synopsys part3b --stop-time=540ns > part3b.gout
+
+#       diff -iw part3b.gout part3b.chkg
+
+clean:	# object files and executable files
+	rm -f *.o
+	rm -f *.cf
+	rm -f t_table
+	rm -f add32_test
+	rm -f tadd32
+	rm -f pmul16_test
+	rm -f part1
+	rm -f part1_start
+	rm -f part2a
+	rm -f part2b
+	rm -f part3a
+	rm -f part3b
+
+

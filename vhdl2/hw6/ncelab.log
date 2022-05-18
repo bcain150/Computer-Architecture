@@ -1,0 +1,20 @@
+ncelab: 15.20-s035: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncelab	15.20-s035: Started on Nov 18, 2020 at 14:20:09 EST
+ncelab
+    -v93
+    -messages
+    -access rwc
+    -cdslib /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/cds.lib
+    -hdlvar /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/hdl.var
+    pmul16_test
+
+ncelab: *W,ARCMRA: Elaborating the VHDL.PMUL16_TEST:CIRCUITS, MRA (most recently analyzed) architecture.
+	Elaborating the design hierarchy:
+	Building instance specific data structures.
+	Design hierarchy summary:
+		       Instances  Unique
+		Components:  275       4
+		Processes:   833       6
+		Signals:     264       9
+	Writing initial simulation snapshot: VHDL.PMUL16_TEST:CIRCUITS
+TOOL:	ncelab	15.20-s035: Exiting on Nov 18, 2020 at 14:20:14 EST  (total: 00:00:05)

@@ -1,0 +1,33 @@
+ncvhdl: 15.20-s035: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncvhdl	15.20-s035: Started on Nov 17, 2020 at 15:48:10 EST
+ncvhdl
+    -v93
+    -messages
+    -linedebug
+    -cdslib /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/cds.lib
+    -hdlvar /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/hdl.var
+    -smartorder
+    add32.vhdl
+    tadd32.vhdl
+
+add32.vhdl:
+	errors: 0, warnings: 0
+tadd32.vhdl:
+	errors: 0, warnings: 0
+VHDL.PG4 (entity):
+	streams: 14, words: 116
+VHDL.PG4:CIRCUITS (architecture):
+	streams: 1, words: 99
+VHDL.ADD4PG (entity):
+	streams: 10, words: 686
+VHDL.ADD4PG:CIRCUITS (architecture):
+	streams: 1, words: 285
+VHDL.ADD32 (entity):
+	streams: 9, words: 890
+VHDL.ADD32:CIRCUITS (architecture):
+	streams: 11, words: 6373
+VHDL.TADD32 (entity):
+	streams: 1, words: 38
+VHDL.TADD32:CIRCUITS (architecture):
+	streams: 3, words: 3384
+TOOL:	ncvhdl	15.20-s035: Exiting on Nov 17, 2020 at 15:48:18 EST  (total: 00:00:08)

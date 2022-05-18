@@ -1,0 +1,20 @@
+EPS|Encapsulated Postscript: \
+         :manufacturer=Adobe: \
+         :type=epsf: \
+         :maximumPages#1: \
+         :resolution#300: \
+         :paperSize="5x5 inches" 1500 1500: \
+         :paperSize="8x8 inches" 2400 2400: \
+         :paperSize="8x10.5 inches" 2400 3150: \
+         :paperSize="Unlimited" 72000 72000:
+
+PSColor|Postscript Color: \
+         :manufacturer=Adobe: \
+         :type=postscript2: \
+         :maximumPages#1: \
+         :resolution#600: \
+         :paperSize="5x5 inches" 3000 3000: \
+         :paperSize="8x8 inches" 4800 4800: \
+         :paperSize="8x10.5 inches" 2400 6300: \
+         :paperSize="Unlimited" 72000 72000:
+

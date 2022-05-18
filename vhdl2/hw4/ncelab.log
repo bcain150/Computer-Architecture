@@ -1,0 +1,20 @@
+ncelab: 15.20-s035: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncelab	15.20-s035: Started on Nov 17, 2020 at 15:48:18 EST
+ncelab
+    -v93
+    -messages
+    -access rwc
+    -cdslib /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/cds.lib
+    -hdlvar /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/hdl.var
+    tadd32
+
+ncelab: *W,ARCMRA: Elaborating the VHDL.TADD32:CIRCUITS, MRA (most recently analyzed) architecture.
+	Elaborating the design hierarchy:
+	Building instance specific data structures.
+	Design hierarchy summary:
+		      Instances  Unique
+		Components:  13       4
+		Processes:   81      14
+		Signals:     36      29
+	Writing initial simulation snapshot: VHDL.TADD32:CIRCUITS
+TOOL:	ncelab	15.20-s035: Exiting on Nov 17, 2020 at 15:48:18 EST  (total: 00:00:00)

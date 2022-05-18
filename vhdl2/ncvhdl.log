@@ -1,0 +1,17 @@
+ncvhdl: 15.20-s035: (c) Copyright 1995-2017 Cadence Design Systems, Inc.
+TOOL:	ncvhdl	15.20-s035: Started on Nov 17, 2020 at 11:40:51 EST
+ncvhdl
+    -messages
+    -linedebug
+    -cdslib /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/cds.lib
+    -hdlvar /afs/umbc.edu/users/b/c/bcain1/home/cs411/vhdl2/hdl.var
+    -smartorder
+    t_table.vhdl
+
+t_table.vhdl:
+	errors: 0, warnings: 0
+VHDL.T_TABLE (entity):
+	streams: 1, words: 38
+VHDL.T_TABLE:TEST (architecture):
+	streams: 5, words: 3302
+TOOL:	ncvhdl	15.20-s035: Exiting on Nov 17, 2020 at 11:40:51 EST  (total: 00:00:00)
